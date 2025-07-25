@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keerthi Sathish | Portfolio</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #fefefe;
+      color: #222;
+      line-height: 1.6;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #3498db; text-decoration: none;
+    }
+    a:hover {
+      color: #21618c;
+    }
+
+    header {
+      background: #f2f6fc;
+      color: #2c3e50;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid #dde5f0;
+    }
+    header img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 4px solid #3498db;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.1em;
+      margin-top: 8px;
+    }
+    nav {
+      margin-top: 15px;
+    }
+    nav a {
+      margin: 0 12px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section h2 {
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 2em;
+      color: #2c3e50;
+    }
+
+    /* About */
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      background: #fefefe;
+      border-radius: 10px;
+      padding: 40px 30px;
+      box-shadow: 0 5px 20px rgb(0 0 0 / 0.05);
+    }
+    #about img {
+      max-width: 200px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    #about p {
+      max-width: 550px;
+      font-size: 1.2em;
+      text-align: center;
+      color: #444;
+    }
+
+    /* Projects & Certifications container style */
+    .slide-container {
+      overflow: hidden;
+    }
+    /* Slide in animations */
+    .slide-in-left {
+      transform: translateX(-100px);
+      opacity: 0;
+      animation: slideInLeft 1s forwards;
+    }
+    .slide-in-right {
+      transform: translateX(100px);
+      opacity: 0;
+      animation: slideInRight 1s forwards;
+    }
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Project rows: alternating image-content, content-image */
+    .project-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 50px;
+      gap: 30px;
+    }
+    .project-row:nth-child(odd) .image-col {
+      order: 1;
+    }
+    .project-row:nth-child(odd) .content-col {
+      order: 2;
+    }
+    .project-row:nth-child(even) .image-col {
+      order: 2;
+    }
+    .project-row:nth-child(even) .content-col {
+      order: 1;
+    }
+
+    .image-col, .content-col {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+    .image-col img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      object-fit: cover;
+      height: 200px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .image-col img:hover {
+      transform: scale(1.05);
+    }
+    .content-col {
+      font-size: 1.1em;
+      color: #333;
+    }
+    .content-col strong {
+      font-size: 1.3em;
+      color: #3498db;
+    }
+
+    /* Skills Section */
+    #skills {
+      background: #f9fbfd;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      max-width: 700px;
+      margin: 0 auto 60px auto;
+    }
+    #skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 0;
+    }
+    #skills ul li {
+      flex: 1 1 120px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
+      text-align: center;
+      font-weight: 600;
+      color: #2c3e50;
+      cursor: default;
+      transition: background 0.3s ease;
+    }
+    #skills ul li:hover {
+      background: #3498db;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Certifications & Hobbies styled alike */
+    #certifications, #hobbies {
+      background: #fefefe;
+      border-radius: 10px;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    #certifications h2, #hobbies h2 {
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+    .certifications-list, .hobbies-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .cert-item, .hobby-item {
+      background: #f4f9ff;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgb(0 0 0 / 0.07);
+      width: 150px;
+      text-align: center;
+      padding: 15px 10px;
+      cursor: default;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+    .cert-item:hover, .hobby-item:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 6px 25px rgb(0 0 0 / 0.15);
+    }
+    .cert-item img, .hobby-item img {
+      max-width: 70px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+    }
+    .cert-item span, .hobby-item span {
+      display: block;
+      font-weight: 600;
+      color: #3498db;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: #ddd;
+      padding: 30px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    footer .footer-name {
+      flex: 1 1 250px;
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+    footer .footer-contact {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    footer .footer-contact a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ddd;
+      transition: color 0.3s ease;
+    }
+    footer .footer-contact a:hover {
+      color: #3498db;
+    }
+    footer .footer-contact svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about {
+        flex-direction: column;
+      }
+      .project-row {
+        flex-direction: column;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      footer .footer-contact {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="me.jpg" alt="Keerthi's Photo" />
+    <h1>Keerthi Sathish</h1>
+    <p>Web Developer | MCA Student | Tech Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <br><br><img src="me.jpg" alt="About Me Image" />
+    <p>Hello! I'm Keerthi, a passionate web developer with a knack for clean design and interactive front-end development. I enjoy bringing ideas to life in the browser.</p>
+  </section>
+
+  <section id="projects" class="slide-container">
+    <h2>Projects</h2>
+
+    <div class="project-row slide-in-right">
+      <div class="image-col">
+        <center><img src="e-learning.jpg" alt="E-Learning Website" /></center>
+      </div>
+      <div class="content-col">
+        <strong>E-Learning website</strong>
+        <p>A website for online education ,offering accessible and interactive learning experiences . it enables students or any other person to access a wide range of courses and resourses anytime,anywhere.</p>
+      </div>
+    </div>
+
+    <div class="project-row slide-in-left">
+      <div class="image-col">
+        <center><img src="tip_calc.jpg" alt="Tip Calculator" /></center>
+      </div>
+      <div class="content-col">
+        <strong>Tip Calculator</strong>
+        <p>A stylish tool to calculate and split tips easily among friends or colleagues. Built with HTML, CSS, and JavaScript for interactive and quick calculations.</p>
+      </div>
+    </div>
+
+    <div class="project-row slide-in-right">
+      <div class="image-col">
+        <center><img src="analog_clock.jpg" alt="Analog Clock" /></center>
+      </div>
+      <div class="content-col">
+        <strong>Analog Clock</strong>
+        <p>A real-time analog clock that updates every second. Developed with pure HTML, CSS, and JS showcasing smooth animations and accurate time display.</p>
+      </div>
+    </div>
+
+    <div class="project-row slide-in-right">
+      <div class="image-col">
+        <img src="https://via.placeholder.com/400x200?text=Personal+Portfolio" alt="Personal Portfolio" />
+      </div>
+      <div class="content-col">
+        <strong>Personal Portfolio</strong>
+        <p>A professional online resume and showcase website that highlights skills, projects, and contact info in a clean and user-friendly layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Python</li>
+      <li>Time Management</li>
+      <li>Communication</li>
+    </ul>
+  </section>
+
+  <section id="certifications" class="slide-container">
+    <h2>Certifications</h2>
+    <div class="certifications-list slide-in-left">
+      <div class="cert-item">
+        <img src="certificate_email_writing.jpg" alt="email Certificate" />
+      </div>
+      <div class="cert-item">
+        <img src="certificate_enterpreneurship.jpg" alt="enterprneurship Certificate" />
+      </div>
+      <div class="cert-item">
+        <img src="certificate_unstop_talentpark_2025.jpg" alt="talent park Certificate" />
+      </div>
+    </div>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <div class="hobbies-list">
+      <div class="hobby-item">
+        <img src="reading.jpg" alt="Reading" />
+        <span>Reading</span>
+      </div>
+      <div class="hobby-item">
+        <img src="music.jpg" alt="Traveling" />
+        <span>Listening to Music</span>
+      </div>
+      <div class="hobby-item">
+        <img src="cooking.jpg" alt="Photography" />
+        <span>Cooking</span>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section id="contact" style="text-align:center; margin-bottom:60px;">
+    <h2>Contact Me</h2>
+    <p>Have a project in mind? Let's connect!</p>
+  </section>
+
+  <footer>
+    <div class="footer-name">Keerthi Sathish</div>
+    <div class="footer-contact">
+      <a href="mailto:keerthibangera2003@gmail.com" title="Email Keerthi">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 13 4 6.01V6h16z"/></svg>
+        Email
+      </a>
+      <a href="#" title="GitHub Profile" onclick="alert('Opening GitHub...');return false;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.48 2 12.04c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.23-.01-.83-.01-1.62-2.78.6-3.37-1.36-3.37-1.36-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.05 1.53 1.05.89 1.53 2.34 1.09 2.9.84.09-.66.35-1.09.63-1.34-2.22-.26-4.56-1.13-4.56-5.03 0-1.11.39-2.01 1.03-2.71-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03a9.6 9.6 0 015 0c1.91-1.3 2.75-1.03 2.75-1.03.56 1.41.2 2.45.1 2.71.64.7 1.03 1.6 1.03 2.71 0 3.91-2.35 4.76-4.59 5.01.36.31.69.91.69 1.83 0 1.32-.01 2.39-.01 2.71 0 .26.16.58.67.48A10.06 10.06 0 0022 12.04C22 6.48 17.52 2 12 2z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

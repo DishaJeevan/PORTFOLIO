@@ -1,0 +1,222 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+
+.cover {
+    height: 50vh;
+    background: linear-gradient(135deg, #007B8A, #004d61);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.cover h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.cover h1 span {
+    color: #ffdd57;
+}
+
+.cover p {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+}
+
+.cover-nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.cover-nav a:hover {
+    color: #ffdd57;
+}
+
+/* About */
+.about {
+    padding: 50px 10%;
+    background: #fff;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: #f7f7f7; /* Gray hover effect */
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-pic img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 5px solid #00b894;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-pic img:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 2;
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.about-text span {
+    color: #00b894;
+}
+
+.about-text ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
+}
+
+/* Section */
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #ffdd57;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.education, .projects, .skills, .certifications, .internships, .workshop, .events {
+    background: #fff;
+    padding: 40px 10%;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.education:hover, .projects:hover, .skills:hover, 
+.certifications:hover, .internships:hover, .workshop:hover, .events:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: #f7f7f7; /* Gray hover effect */
+}
+
+.education ul, .certifications ul, .internships ul, .workshop ul, .events ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.education ul li, .certifications ul li, .internships ul li, .workshop ul li, .events ul li {
+    margin: 10px 0;
+}
+
+/* Project Items */
+.project-item {
+    background: #f9f9f9;
+    margin: 15px 0;
+    padding: 20px;
+    border-left: 5px solid #00b894;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    background: #eafaf1;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skills p {
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffdd57;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-pic img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-text h2 {
+        font-size: 1.6rem;
+    }
+}
